@@ -18,7 +18,7 @@ x=1:duration;
 inrerval = 1;
 numSamples= duration/inrerval; 
 voltage_values = zeros(1,duration);
-tempreature_values = zeros(1,duration);
+temperature_values = zeros(1,duration);
 Tc=0.01;
 VOC=0.5;
 for t = 1:duration
@@ -27,12 +27,12 @@ temperature = (voltage - VOC)/Tc;
 tempreature_values(t) = temperature;
 pause(1);
 end
-min_temperature=min(tempreature_values );
-max_temperature=max(tempreature_values);
-avg_temperature=mean(tempreature_values);
+min_temperature=min(temperature_values );
+max_temperature=max(temperature_values;
+avg_temperature=mean(temperature_values);
 
 figure;
-plot(1:duration, tempreature_values)
+plot(1:duration,temperature_values)
 xlabel('Time(seconds)');
 ylabel('Temperature(°C)');
 title('Temperature vs Time');
