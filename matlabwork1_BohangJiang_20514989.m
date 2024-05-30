@@ -56,7 +56,7 @@ fprintf(fileID, 'Location: Nottingham');
 fprintf('Data: %s\nLocation: %s\n\n', datestr(now, 'dd-mmm-yyyy'), Location);
 fprintf('Minute\t\tTemperature (°C)\n');
 
-for i = 1:60:x
+for i = 1:60:length(x)
     minute= i/60;
     fprintf('\n')
     fprintf('Minute %d\n', minute);
