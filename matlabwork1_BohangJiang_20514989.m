@@ -12,8 +12,8 @@ for i= 1:10
 end
 
 %Task1
-a=arduino('COM3','UNO')
-duration = 600;
+a=arduino('COM3','UNO');
+duration = 6;
 x=1:duration;
 inrerval = 1;
 numSamples= duration/inrerval; 
@@ -21,12 +21,12 @@ vaoltage_values = zeros(1,duration);
 tempreature_values = zeros(1,duration);
 Tc=0.01;
 VOC=0.5;
-for t = 1:duration;
+for t = 1:duration
 voltage = readVoltage(a,"A2");
 temperature = (voltage - VOC)/Tc;
 tempreature_values(t) = temperature;
 pause(1);
-end;
+end
 min_temperature=min(tempreature_values );
 max_temperature=max(tempreature_values);
 avg_temperature=mean(tempreature_values);
@@ -37,16 +37,16 @@ xlabel('Time(seconds)');
 ylabel('Temperature(°C)');
 title('Temperature vs Time');
 grid on
-str=[sprintf('\n') 'Data logging initiated-5/3/2024' sprintf('\n') 'Location_Nottingham'];
+str=[newline 'Data logging initiated-5/3/2024' newline 'Location_Nottingham'];
 disp(str);
 fprintf('Minimun Temperature: %.2f\n ', min_temperature);
 fprintf('Maximum Temperature: %.2f\n', max_temperature);
 fprintf('Average Temperature: %.2f\n', avg_temperature);
 
 for i = 1:numSamples
-    if mod(i,60) == 0;
+    if mod(i,60) == 0
         minute = i/60;
-        fprintf ('%d\t%.2f\n',minute, sprintf('\n'), temperature_values(i));
+        fprintf ('%d\t%.2f\n',minute, newline, temperature_values(i));
     end
 end
 Location = 'Nottingham';
