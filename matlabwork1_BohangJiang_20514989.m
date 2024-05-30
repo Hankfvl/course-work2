@@ -57,7 +57,7 @@ fprintf('Data: %s\nLocation: %s\n\n', datestr(now, 'dd-mmm-yyyy'), Location);
 fprintf('Minute\t\tTemperature (°C)\n');
 
 for i = 1:60:length(x)
-    minute= i/60;
+    minute= (i-1)/60;
     fprintf('\n')
     fprintf('Minute %d\n', minute);
     fprintf('Temperature %.2f C\n', temperature(i));
