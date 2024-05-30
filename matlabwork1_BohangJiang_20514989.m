@@ -136,7 +136,37 @@ end
 
 
 %TASK3
+clear
+a=arduino('COM3','UNO');
+c=cell()
 
+for i=1:30
+    V=readVoltage(a,A1)
+    T=(V-0.5)*100
+   
+    c{i}=T
+    b=c{i}-c{i-1}
+    if -0.067<b<0.067  && b==0.067 &&  b==-0.067 
+        writeDigitalPin(a, 'A1', 1)
+        writeDigitalPin(a, 'A2', 0)
+        writeDigitalPin(a, 'A3', 0)
+    elseif b>0.067
+        writeDigitalPin(a, 'A1', 0)
+        writeDigitalPin(a, 'A2', 1)
+        writeDigitalPin(a, 'A3', 0)
+    elseif b<-0.067
+        writeDigitalPin(a, 'A3', 1)
+        writeDigitalPin(a, 'A2', 0)
+        writeDigitalPin(a, 'A1', 0)
+    end
+
+
+    disp([' The change rate is' ,b, ' °C']);% 显示读取到的温度数据
+    disp([' The temperature is' ,T, ' °C'])
+    pause(1)
+end
+T=T+300*(c{30}-c{1})/30
+disp('The temperature will be ',T,'°C in 5 min')
 
 
 %TASK4
