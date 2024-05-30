@@ -161,7 +161,7 @@ for i=1:30
     end
 
 
-    disp([' The change rate is' ,b, ' °C']);% 显示读取到的温度数据
+    disp([' The change rate is' ,b, ' °C']);
     disp([' The temperature is' ,T, ' °C'])
     pause(1)
 end
