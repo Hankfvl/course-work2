@@ -93,3 +93,25 @@ disp('Content of Cabin_temperature.txt:');
 disp(fileContent);
 
 fopen('Content of Cabin_temperature.txt')
+
+
+%TASK2
+
+
+
+%TASK3
+
+
+
+%TASK4
+%During the development of the LED temperature monitoring device and the associated MATLAB scripts, I encountered several challenges and learned significantly.
+
+%One primary challenge was establishing reliable communication between MATLAB and Arduino. Configuring the hardware support package and ensuring the correct COM port required meticulous attention to detail. Additionally, integrating the temperature sensor and ensuring accurate readings posed difficulties due to noise and data fluctuations. Implementing a stabilization resistor helped mitigate some of these issues.
+
+%Another significant challenge was developing the real-time LED control logic. Ensuring that the LEDs blinked at the correct intervals and responded appropriately to temperature changes required precise timing controls within the MATLAB script. Balancing the updating of the live temperature plot with managing the LED states was tricky, as both processes needed to be handled concurrently without causing significant delays.
+
+%A key strength of the project was the successful integration of MATLAB's plotting capabilities with real-time data acquisition from Arduino. This provided a visual representation of temperature changes, aiding in debugging and verifying the functionality of the LED controls. Using flowcharts before coding also proved beneficial, allowing for a clear implementation plan and a smoother coding process.
+
+%However, the current implementation has limitations. The noise in temperature readings, even with stabilization efforts, indicates that further filtering techniques could improve accuracy. The LED control logic might not effectively account for rapid temperature fluctuations. More sophisticated algorithms could provide a more robust response.
+
+%Overall, this project provided valuable hands-on experience with MATLAB, Arduino, and real-time data processing. The challenges faced and overcome have deepened my understanding of embedded systems and their applications in monitoring and control tasks.
