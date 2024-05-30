@@ -96,7 +96,43 @@ fopen('Content of Cabin_temperature.txt')
 
 
 %TASK2
+% Create Arduino object
+a = arduino('COM4');
 
+% Define LED pins
+greenLED = 'D2';
+yellowLED = 'D3';
+redLED = 'D4';
+
+% Define temperature sensor pin (assumed to be analog pin A0)
+tempSensorPin = 'A0';
+
+while true
+% Read temperature sensor value
+sensorValue = readVoltage(a, tempSensorPin);
+temperature = sensorValue * 100; % LM35 conversion formula: 1V = 100°C
+
+% Print temperature value to the console (for debugging)
+fprintf('Temperature: %.2f\n', temperature);
+
+% Control LEDs based on temperature value
+if temperature >= 18 && temperature <= 24
+writeDigitalPin(a, greenLED, 1); % Turn on green LED
+writeDigitalPin(a, yellowLED, 0); % Turn off yellow LED
+writeDigitalPin(a, redLED, 0); % Turn off red LED
+elseif temperature < 18
+writeDigitalPin(a, greenLED, 0); % Turn off green LED
+writeDigitalPin(a, redLED, 0); % Turn off red LED
+blinkLED(a, yellowLED, 0.5); % Blink yellow LED at 0.5s intervals
+elseif temperature > 24
+writeDigitalPin(a, greenLED, 0); % Turn off green LED
+writeDigitalPin(a, yellowLED, 0); % Turn off yellow LED
+blinkLED(a, redLED, 0.25); % Blink red LED at 0.25s intervals
+end
+
+% Delay 1 second to ensure correct timing for data acquisition
+pause(1);
+end
 
 
 %TASK3
