@@ -3,7 +3,7 @@
 %ssybj2@nottingham.edu.cn
 
 %preliminary task
-5a=arduino('COM3','UNO');
+a=arduino('COM3','UNO');
 for i= 1:10
     writeDigitalPin(a,'D2',1);
     pause(0.5);
